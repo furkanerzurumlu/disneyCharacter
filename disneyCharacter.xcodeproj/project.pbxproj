@@ -13,7 +13,12 @@
 		DC0CFB6628EEF908005E1552 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC0CFB6428EEF908005E1552 /* Main.storyboard */; };
 		DC0CFB6828EEF908005E1552 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC0CFB6728EEF908005E1552 /* Assets.xcassets */; };
 		DC0CFB6B28EEF908005E1552 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC0CFB6928EEF908005E1552 /* LaunchScreen.storyboard */; };
-		DC0CFB7528EEF933005E1552 /* disneyCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0CFB7428EEF933005E1552 /* disneyCharacter.swift */; };
+		DC0CFB7728EEFA51005E1552 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0CFB7628EEFA51005E1552 /* Character.swift */; };
+		DC0CFB7928EEFA7A005E1552 /* characterNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0CFB7828EEFA7A005E1552 /* characterNetworking.swift */; };
+		DC0CFB7C28EEFA9B005E1552 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DC0CFB7B28EEFA9B005E1552 /* Alamofire */; };
+		DC0CFB7F28EEFC5D005E1552 /* HomePageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0CFB7E28EEFC5D005E1552 /* HomePageVM.swift */; };
+		DCAA98F228EF00B3005702BA /* DisneyCharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAA98F028EF00B3005702BA /* DisneyCharacterCollectionViewCell.swift */; };
+		DCAA98F328EF00B3005702BA /* DisneyCharacterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCAA98F128EF00B3005702BA /* DisneyCharacterCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +30,11 @@
 		DC0CFB6728EEF908005E1552 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC0CFB6A28EEF908005E1552 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC0CFB6C28EEF908005E1552 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DC0CFB7428EEF933005E1552 /* disneyCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = disneyCharacter.swift; sourceTree = "<group>"; };
+		DC0CFB7628EEFA51005E1552 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		DC0CFB7828EEFA7A005E1552 /* characterNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = characterNetworking.swift; sourceTree = "<group>"; };
+		DC0CFB7E28EEFC5D005E1552 /* HomePageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageVM.swift; sourceTree = "<group>"; };
+		DCAA98F028EF00B3005702BA /* DisneyCharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisneyCharacterCollectionViewCell.swift; sourceTree = "<group>"; };
+		DCAA98F128EF00B3005702BA /* DisneyCharacterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DisneyCharacterCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC0CFB7C28EEFA9B005E1552 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,12 +68,12 @@
 		DC0CFB5D28EEF908005E1552 /* disneyCharacter */ = {
 			isa = PBXGroup;
 			children = (
+				DCAA98EF28EF0091005702BA /* DisneyCharacterCollectionViewCell */,
 				DC0CFB7328EEF91F005E1552 /* Model */,
 				DC0CFB7228EEF915005E1552 /* Service */,
+				DC0CFB7D28EEFC29005E1552 /* Screen */,
 				DC0CFB5E28EEF908005E1552 /* AppDelegate.swift */,
 				DC0CFB6028EEF908005E1552 /* SceneDelegate.swift */,
-				DC0CFB6228EEF908005E1552 /* ViewController.swift */,
-				DC0CFB6428EEF908005E1552 /* Main.storyboard */,
 				DC0CFB6728EEF908005E1552 /* Assets.xcassets */,
 				DC0CFB6928EEF908005E1552 /* LaunchScreen.storyboard */,
 				DC0CFB6C28EEF908005E1552 /* Info.plist */,
@@ -74,6 +84,7 @@
 		DC0CFB7228EEF915005E1552 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				DC0CFB7828EEFA7A005E1552 /* characterNetworking.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -81,9 +92,28 @@
 		DC0CFB7328EEF91F005E1552 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DC0CFB7428EEF933005E1552 /* disneyCharacter.swift */,
+				DC0CFB7628EEFA51005E1552 /* Character.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DC0CFB7D28EEFC29005E1552 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				DC0CFB6228EEF908005E1552 /* ViewController.swift */,
+				DC0CFB6428EEF908005E1552 /* Main.storyboard */,
+				DC0CFB7E28EEFC5D005E1552 /* HomePageVM.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		DCAA98EF28EF0091005702BA /* DisneyCharacterCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				DCAA98F028EF00B3005702BA /* DisneyCharacterCollectionViewCell.swift */,
+				DCAA98F128EF00B3005702BA /* DisneyCharacterCollectionViewCell.xib */,
+			);
+			path = DisneyCharacterCollectionViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,6 +132,9 @@
 			dependencies = (
 			);
 			name = disneyCharacter;
+			packageProductDependencies = (
+				DC0CFB7B28EEFA9B005E1552 /* Alamofire */,
+			);
 			productName = disneyCharacter;
 			productReference = DC0CFB5B28EEF908005E1552 /* disneyCharacter.app */;
 			productType = "com.apple.product-type.application";
@@ -130,6 +163,9 @@
 				Base,
 			);
 			mainGroup = DC0CFB5228EEF908005E1552;
+			packageReferences = (
+				DC0CFB7A28EEFA9B005E1552 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = DC0CFB5C28EEF908005E1552 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -146,6 +182,7 @@
 			files = (
 				DC0CFB6B28EEF908005E1552 /* LaunchScreen.storyboard in Resources */,
 				DC0CFB6828EEF908005E1552 /* Assets.xcassets in Resources */,
+				DCAA98F328EF00B3005702BA /* DisneyCharacterCollectionViewCell.xib in Resources */,
 				DC0CFB6628EEF908005E1552 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,9 +195,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC0CFB6328EEF908005E1552 /* ViewController.swift in Sources */,
-				DC0CFB7528EEF933005E1552 /* disneyCharacter.swift in Sources */,
+				DCAA98F228EF00B3005702BA /* DisneyCharacterCollectionViewCell.swift in Sources */,
 				DC0CFB5F28EEF908005E1552 /* AppDelegate.swift in Sources */,
+				DC0CFB7F28EEFC5D005E1552 /* HomePageVM.swift in Sources */,
 				DC0CFB6128EEF908005E1552 /* SceneDelegate.swift in Sources */,
+				DC0CFB7928EEFA7A005E1552 /* characterNetworking.swift in Sources */,
+				DC0CFB7728EEFA51005E1552 /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +418,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DC0CFB7A28EEFA9B005E1552 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DC0CFB7B28EEFA9B005E1552 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC0CFB7A28EEFA9B005E1552 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DC0CFB5328EEF908005E1552 /* Project object */;
 }
