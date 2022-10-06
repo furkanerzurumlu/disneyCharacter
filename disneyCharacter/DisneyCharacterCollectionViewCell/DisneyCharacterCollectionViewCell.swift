@@ -15,3 +15,13 @@ class DisneyCharacterCollectionViewCell: UICollectionViewCell {
     }
 
 }
+
+extension DisneyCharacterCollectionViewCell{
+    static var identifier: String{
+        return String(describing: self)
+    }
+    
+    static var nibName: UINib {
+        return UINib(nibName: identifier, bundle: nil)
+    }
+}
