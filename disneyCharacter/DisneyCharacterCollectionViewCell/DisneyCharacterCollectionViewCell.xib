@@ -20,12 +20,12 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSQ-Ex-ibh">
                         <rect key="frame" x="0.0" y="0.0" width="270" height="265"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LgD-tw-nuQ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LgD-tw-nuQ">
                                 <rect key="frame" x="17" y="15" width="236" height="177"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FjX-SS-Aor">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FjX-SS-Aor">
                                 <rect key="frame" x="17" y="211" width="238" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -51,6 +51,11 @@
                 <constraint firstAttribute="bottom" secondItem="HSQ-Ex-ibh" secondAttribute="bottom" id="lEp-Pt-Jqr"/>
             </constraints>
             <size key="customSize" width="270" height="265"/>
+            <connections>
+                <outlet property="disneyCharacterImage" destination="LgD-tw-nuQ" id="xUV-Iy-0VJ"/>
+                <outlet property="disneyCharacterName" destination="FjX-SS-Aor" id="xQo-jg-Pe1"/>
+                <outlet property="firstLayer" destination="HSQ-Ex-ibh" id="MfV-ti-f2X"/>
+            </connections>
             <point key="canvasLocation" x="296.92307692307691" y="97.037914691943129"/>
         </collectionViewCell>
     </objects>

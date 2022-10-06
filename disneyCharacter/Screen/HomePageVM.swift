@@ -6,3 +6,38 @@
 //
 
 import Foundation
+
+protocol HomePageVMProtocol: AnyObject {
+    
+}
+
+protocol HomePageVMDelegate: HomePageVMProtocol{
+    var delegate: HomePageVMDelegateOutputs? {get set}
+    var data: [Datum] {get set}
+    func getUpcomingData()
+}
+
+protocol HomePageVMDelegateOutputs: AnyObject{
+    func reloadCollectionView()
+}
+
+
+class HomePageVM: HomePageVMDelegate{
+    
+    var delegate: HomePageVMDelegateOutputs?
+    var data: [Datum] = []
+    var network: characterNetworking = characterNetworking()
+    
+    
+    func getUpcomingData() {
+        network.getUpComingCharacter{[weak self] (response) in
+            if let response = response{
+                self?.data = response.data
+                self?.delegate?.reloadCollectionView()
+            }
+                
+        }
+    }
+    
+    
+}

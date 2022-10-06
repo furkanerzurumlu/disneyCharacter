@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var homePageTitle: UILabel!
     @IBOutlet weak var characterCollectionView: UICollectionView!
+    
+    var viewModel: HomePageVM = HomePageVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,29 +25,37 @@ class ViewController: UIViewController {
         characterCollectionView.delegate = self
         characterCollectionView.dataSource = self
         
+        
+        viewModel.delegate = self
+        viewModel.getUpcomingData()
+        
+        print("\(viewModel.data.count)")
+        
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 5
         layout.minimumInteritemSpacing = 5
         characterCollectionView.setCollectionViewLayout(layout, animated: true)
         
-        
     }
     func setLayout(){
         homePageTitle.text = "Disney Character"
         homePageTitle.textColor = .white
     }
-    
-
 }
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return viewModel.data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = characterCollectionView.dequeueReusableCell(withReuseIdentifier: DisneyCharacterCollectionViewCell.identifier, for: indexPath) as! DisneyCharacterCollectionViewCell
+        cell.disneyCharacterName.text = viewModel.data[indexPath.row].name
+        let url = URL.init(string: "\(viewModel.data[indexPath.row].imageURL)")
+        
+        cell.disneyCharacterImage.sd_setImage(with: url)
+        
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -53,6 +64,14 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let lay = collectionViewLayout as! UICollectionViewFlowLayout
         let widthPerItem = characterCollectionView.frame.width/2 - lay.minimumInteritemSpacing
-        return CGSize(width:widthPerItem, height:100)
+        return CGSize(width:widthPerItem, height:360)
     }
+}
+
+extension ViewController: HomePageVMDelegateOutputs{
+    func reloadCollectionView() {
+        self.characterCollectionView.reloadData()
+    }
+    
+    
 }
