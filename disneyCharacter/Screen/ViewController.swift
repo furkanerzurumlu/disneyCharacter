@@ -28,8 +28,7 @@ class ViewController: UIViewController {
         
         viewModel.delegate = self
         viewModel.getUpcomingData()
-        
-        print("\(viewModel.data.count)")
+        print("\(viewModel.nextPage.description)")
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical

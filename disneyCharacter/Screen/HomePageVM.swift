@@ -14,6 +14,7 @@ protocol HomePageVMProtocol: AnyObject {
 protocol HomePageVMDelegate: HomePageVMProtocol{
     var delegate: HomePageVMDelegateOutputs? {get set}
     var data: [Datum] {get set}
+    var nextPage: String {get set}
     func getUpcomingData()
 }
 
@@ -23,7 +24,7 @@ protocol HomePageVMDelegateOutputs: AnyObject{
 
 
 class HomePageVM: HomePageVMDelegate{
-    
+    var nextPage: String = ""
     var delegate: HomePageVMDelegateOutputs?
     var data: [Datum] = []
     var network: characterNetworking = characterNetworking()
@@ -33,6 +34,7 @@ class HomePageVM: HomePageVMDelegate{
         network.getUpComingCharacter{[weak self] (response) in
             if let response = response{
                 self?.data = response.data
+                self?.nextPage = response.nextPage
                 self?.delegate?.reloadCollectionView()
             }
                 

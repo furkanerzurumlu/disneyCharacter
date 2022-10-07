@@ -72,7 +72,6 @@
 		DC0CFB5D28EEF908005E1552 /* disneyCharacter */ = {
 			isa = PBXGroup;
 			children = (
-				DCAA98EF28EF0091005702BA /* DisneyCharacterCollectionViewCell */,
 				DC0CFB7328EEF91F005E1552 /* Model */,
 				DC0CFB7228EEF915005E1552 /* Service */,
 				DC0CFB7D28EEFC29005E1552 /* Screen */,
@@ -104,6 +103,7 @@
 		DC0CFB7D28EEFC29005E1552 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				DCAA98EF28EF0091005702BA /* DisneyCharacterCollectionViewCell */,
 				DC0CFB6228EEF908005E1552 /* ViewController.swift */,
 				DC0CFB6428EEF908005E1552 /* Main.storyboard */,
 				DC0CFB7E28EEFC5D005E1552 /* HomePageVM.swift */,
